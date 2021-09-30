@@ -60,7 +60,7 @@ export default class Rtc {
         self.callButton = document.getElementById('callButton');
         self.hangupButton = document.getElementById('hangupButton');
         try {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
+            const stream = await (navigator.getUserMedia ? navigator.getUserMedia() : navigator.mediaDevices.getUserMedia)({ audio: true, video: true });
             console.log('Received local stream');
             self.localVideo.srcObject = stream;
             self.localStream = stream;

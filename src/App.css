@@ -1,23 +1,117 @@
-html, body, #container {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body {
+  background-image: url("img/Hero-bg-01.png");
+  background-repeat:no-repeat;
+}
+
+.App {
+  text-align: center;
 }
 
 #container {
-  display: flex;
-  flex-direction: column;
-}
-
-header, footer {
-  flex: 0 0 100px;
+  margin-top: 200px;
 }
 
 .content {
-  flex: 1 1 auto;
-  display: flex;
+  margin-top: 200px;
 }
 
-.content > video {
-  flex: 0 0 48%;
+.MuiPaper-root.MuiPaper-elevation.MuiAppBar-colorPrimary.app-header {
+  background-color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+video {
+  min-height: 480px;
+}
+
+.ui.small.image {
+  background-image: url("/src/img/Logo.png");
+  background-repeat:no-repeat;
+  background-position:center center;
+  width: 90px;
+  height: 80px;
+  background-size: contain;
+}
+
+.images {
+  background-image: url("/src/img/location.png");
+  background-repeat:no-repeat;
+  background-position:center center;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+}
+
+.hub-name {
+  color: black;
+  text-transform: capitalize;
+}
+
+.menu .ui.divided.three.column.grid {
+  position: absolute;
+  top: 16px;
+  left: 160px;
+}
+
+.menu .ui.grid>.row {
+  padding: 0;
+}
+
+.menu .ui.vertical.animated.button .visible.content {
+  height: 100%;
+  width: 100%;
+}
+
+.menu .ui.top.attached.demo.menu {
+  background-color: transparent;
+  border: none;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90px;
+}
+
+.menu .ui.top.attached.demo.menu .item {
+  background-color: white;
+}
+
+.menu .ui.animated.button {
+  width: 90px;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

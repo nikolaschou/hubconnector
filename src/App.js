@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
+import Header from "./components/Header";
+import DisconnectedPage from "./pages/DisconnectedPage";
+import {Container, Grid} from "@mui/material";
 
 const App = () => {
   const [members, setMembers] = useState([]);
@@ -129,11 +132,16 @@ const App = () => {
   console.log(members);
   return (
     <div id="container">
-      <header>aaa</header>
-      <div className="content">
-        <video id="localVideo" autoPlay muted></video>
-        <video id="remoteVideo" autoPlay></video>
-      </div>
+      <Header />
+      <Container fixed maxWidth="xl">
+        <Grid container spacing={4}>
+        {members.length === 0 && <DisconnectedPage/>}
+        <Grid item className="content">
+          <video id="localVideo" autoPlay muted />
+          <video id="remoteVideo" autoPlay />
+        </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }

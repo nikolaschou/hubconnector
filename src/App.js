@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import DisconnectedPage from "./pages/DisconnectedPage";
@@ -56,6 +56,7 @@ const App = () => {
   let room;
   let drone;
   let roomName;
+
 
   // Send signaling data via Scaledrone
   const sendMessage = (message) => {

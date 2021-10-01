@@ -7,7 +7,7 @@ function changeRoom(hub2) {
     console.log('outer')
     const hub = window.localStorage.getItem('hub')
     const hub1 = hub ? hub : 'Copenhagen' 
-    const hubs = [hub1, hub2];
+    const hubs = [hub1, hub2].map(item => item.replace(/ /g,''));
     hubs.sort();
     window.location.href='/#' + hubs.join('_');
     window.location.reload();  
@@ -17,6 +17,7 @@ function changeRoom(hub2) {
 function Header() {
   return (
     <AppBar position="fixed" className="app-header">
+      
       <Toolbar>
         <IconButton
           size="large"

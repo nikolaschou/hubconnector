@@ -203,6 +203,7 @@ const App = () => {
     <div id="container">
       <Header />
       <Container fixed maxWidth="xl">
+        <h1>{localStorage.getItem('hub')}</h1>
         <Grid container spacing={4}>
           {members.length === 0 && <DisconnectedPage />}
           <Grid item container className="content" spacing={4}>

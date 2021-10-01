@@ -211,8 +211,8 @@ const App = () => {
               <video id="localVideo" autoPlay muted />
             </Grid>
             <Grid item>
-              <div style={{ padding: '20px 0', fontWeight: 'bold', color: status === 'STREAMING' ? 'green' : 'red' }}>STATUS: {status}</div>
               <video id="remoteVideo" autoPlay />
+              <div style={{ padding: '20px 0', fontWeight: 'bold', color: status === 'STREAMING' ? 'green' : '' }}>STATUS: {status === 'STREAMING' ? status : '--'}</div>
             </Grid>
           </Grid>
         </Grid>

@@ -1,13 +1,13 @@
 body {
   background-image: url("img/Hero-bg-01.png");
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   min-height: 100vh;
 }
 
 .Mui-disabled.MuiButton-root.MuiButton-text {
- background-color: lightgray;
+  background-color: lightgray;
 }
 
 .App {
@@ -51,13 +51,13 @@ video#remoteVideo {
 }
 
 video#localVideo {
-  max-width: 320px;
+  max-width: 240px;
 }
 
 .ui.small.image {
   background-image: url("/src/img/Logo.png");
-  background-repeat:no-repeat;
-  background-position:center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   width: 90px;
   height: 80px;
   background-size: contain;
@@ -65,8 +65,8 @@ video#localVideo {
 
 .images {
   background-image: url("/src/img/location.png");
-  background-repeat:no-repeat;
-  background-position:center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   width: 24px;
   height: 24px;
   background-size: contain;
@@ -107,7 +107,7 @@ video#localVideo {
   left: 160px;
 }
 
-.menu .ui.grid>.row {
+.menu .ui.grid > .row {
   padding: 0;
 }
 

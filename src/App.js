@@ -32,10 +32,10 @@ const App = () => {
         0
       );
       if (sum > 30) {
-        console.log("STREAMING");
+        //console.log("STREAMING");
         sendMessage("STREAMING");
       } else {
-        console.log("IDLE");
+        //console.log("IDLE");
         sendMessage("IDLE");
       }
       console.log(motionScoreList);
@@ -63,7 +63,7 @@ const App = () => {
       room: roomName,
       message,
     });
-    console.log("sent message", message);
+    //console.log("sent message", message);
   };
 
   useEffect(() => {
@@ -109,10 +109,6 @@ const App = () => {
         setMembers(roomMembers);
         startWebRTC(isOfferer);
       });
-
-      room.on("message", (message) => {
-        console.log("RM:", message);
-      });
     });
 
     const startWebRTC = (isOfferer) => {
@@ -157,6 +153,8 @@ const App = () => {
         if (client.id === drone.clientId) {
           return;
         }
+
+        console.log("RM:", message);
 
         if (message.sdp) {
           // This is called after receiving an offer or answer from another peer

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import DisconnectedPage from "./pages/DisconnectedPage";
@@ -7,8 +7,6 @@ import { DiffCamEngine } from "./lib/diff-cam-engine";
 
 const App = () => {
   // motion tracker
-  const video = document.getElementById("video");
-  const canvas = document.getElementById("motion");
   let motionCount = 0;
   const motionScoreList = [];
 
@@ -32,10 +30,8 @@ const App = () => {
         0
       );
       if (sum > 30) {
-        //console.log("STREAMING");
         sendMessage("STREAMING");
       } else {
-        //console.log("IDLE");
         sendMessage("IDLE");
       }
       console.log(motionScoreList);
@@ -45,6 +41,7 @@ const App = () => {
   // motion tracker end
 
   const [members, setMembers] = useState([]);
+  const [status, setStatus] = useState('--');
   const configuration = {
     iceServers: [
       {
@@ -87,7 +84,7 @@ const App = () => {
     }
     //pc = new RTCPeerConnection(configuration);
 
-    const onSuccess = () => {};
+    const onSuccess = () => { };
     const onError = (error) => {
       console.error(error);
     };
@@ -157,6 +154,10 @@ const App = () => {
 
         console.log("RM:", message);
 
+        if (['STREAMING', 'IDLE'].includes(message)) {
+          setStatus(message);
+        }
+
         if (message.sdp) {
           // This is called after receiving an offer or answer from another peer
           pc.setRemoteDescription(
@@ -189,8 +190,8 @@ const App = () => {
     };
 
     DiffCamEngine.init({
-      video: video,
-      motionCanvas: canvas,
+      video: null,
+      motionCanvas: null,
       initSuccessCallback: initSuccess,
       initErrorCallback: initError,
       captureCallback: capture,
@@ -203,15 +204,16 @@ const App = () => {
       <Header />
       <Container fixed maxWidth="xl">
         <Grid container spacing={4}>
-        {members.length === 0 && <DisconnectedPage/>}
-        <Grid item container className="content" spacing={4}>
-          <Grid item>
-            <video id="localVideo" autoPlay muted />
+          {members.length === 0 && <DisconnectedPage />}
+          <Grid item container className="content" spacing={4}>
+            <Grid item>
+              <video id="localVideo" autoPlay muted />
+            </Grid>
+            <Grid item>
+              <div style={{ padding: '20px 0', fontWeight: 'bold', color: status === 'STREAMING' ? 'green' : 'red' }}>STATUS: {status}</div>
+              <video id="remoteVideo" autoPlay />
+            </Grid>
           </Grid>
-          <Grid item>
-            <video id="remoteVideo" autoPlay />
-          </Grid>
-        </Grid>
         </Grid>
       </Container>
     </div>

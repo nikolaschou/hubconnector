@@ -1,6 +1,13 @@
 body {
   background-image: url("img/Hero-bg-01.png");
   background-repeat:no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+.Mui-disabled.MuiButton-root.MuiButton-text {
+ background-color: lightgray;
 }
 
 .App {
@@ -39,8 +46,12 @@ body {
   color: white;
 }
 
-video {
+video#remoteVideo {
   min-height: 480px;
+}
+
+video#localVideo {
+  max-width: 320px;
 }
 
 .ui.small.image {
@@ -64,6 +75,30 @@ video {
 .hub-name {
   color: black;
   text-transform: capitalize;
+}
+
+.status-indicator {
+  border-radius: 50%;
+  height: 0;
+  width: 0;
+  padding: 5px;
+  margin-left: 4px;
+}
+
+.status-indicator.has-guest {
+  background-color: lightgreen;
+}
+
+.status-indicator.active {
+  background-color: red;
+}
+
+.status-indicator.no-guest {
+  background-color: gray;
+}
+
+.status-indicator.offline {
+  background-color: black;
 }
 
 .menu .ui.divided.three.column.grid {

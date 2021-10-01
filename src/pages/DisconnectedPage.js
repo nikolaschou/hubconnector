@@ -13,7 +13,7 @@ function DisconnectedPage() {
     }
   };
   return (
-    <Grid item style={{paddingTop: "200px"}}>
+    <Grid item style={{paddingTop: "200px", margin: "0 auto", minHeight: "100vh"}}>
       <Lottie
         options={defaultOptions}
         height={400}

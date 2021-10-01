@@ -136,9 +136,13 @@ const App = () => {
       <Container fixed maxWidth="xl">
         <Grid container spacing={4}>
         {members.length === 0 && <DisconnectedPage/>}
-        <Grid item className="content">
-          <video id="localVideo" autoPlay muted />
-          <video id="remoteVideo" autoPlay />
+        <Grid item container className="content" spacing={4}>
+          <Grid item>
+            <video id="localVideo" autoPlay muted />
+          </Grid>
+          <Grid item>
+            <video id="remoteVideo" autoPlay />
+          </Grid>
         </Grid>
         </Grid>
       </Container>

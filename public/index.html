@@ -29,6 +29,17 @@
     <title>React App</title>
   </head>
   <body>
+    <script>
+      if (!localStorage.getItem("hub")) {
+        localStorage.setItem(
+          "hub",
+          prompt(
+            "Enter your hub name. You may use Copenhagen, Novi Sad, Sofia, Kragujevac, Beograd, Sarajevo, Banja Luka",
+            "Novi Sad"
+          )
+        );
+      }
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
